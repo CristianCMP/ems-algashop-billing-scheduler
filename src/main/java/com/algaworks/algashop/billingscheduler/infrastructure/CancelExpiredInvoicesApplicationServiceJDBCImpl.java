@@ -93,7 +93,6 @@ public class CancelExpiredInvoicesApplicationServiceJDBCImpl implements CancelEx
                 }).toList();
 
         try {
-//            jdbcOperations.update(UPDATE_INVOICE_STATUS_SQL, CANCEL_STATUS, CANCEL_REASON, invoiceId);
             jdbcOperations.batchUpdate(UPDATE_INVOICE_STATUS_SQL,
                     cancelledInvoices,
                     cancelledInvoices.size(),
@@ -102,7 +101,7 @@ public class CancelExpiredInvoicesApplicationServiceJDBCImpl implements CancelEx
                         ps.setString(2, CANCEL_REASON);
                         ps.setObject(3, invoiceProjection.getId());
                     }
-            );
+                    );
             log.info("Task - Invoices canceled");
             return cancelledInvoices.size();
         } catch (DataAccessException e) {

@@ -14,13 +14,6 @@ public class CancelExpiredInvoicesRunner implements ApplicationRunner {
 
     private final CancelExpiredInvoicesApplicationService applicationService;
 
-//    @Scheduled(fixedRate = 5000) //a cada 5 segundos
-//    public void runTask() {
-//        log.info("Task started - Cancelling expired invoices.");
-//        applicationService.cancelExpiredInvoices();
-//        log.info("Task ended - Expired invoices.");
-//    }
-
     @Override
     public void run(ApplicationArguments args) throws Exception {
         log.info("Task started - Cancelling expired invoices.");
